@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Задание 1
+        let Tf
+        let Tc = 25
+
+        Tf = (9/5)*Tc+32
+        alert(Tf)
+
+        //Задание 2
+        let admin
+        let name
+        name = "Василий"
+        admin = name
+        console.log(admin)
+
+        //Задание 3
+        /*
+        Складываются два числа, затем конвертируются в строку и результат соединяется со строкой
+        */
+        console.log(10 + 10 + "10"); 
+
+        /*
+        Число конвертируется в строку, потому что второй операнд - строка
+        */
+        console.log(10 + "10" + 10); 
+
+        /*
+        Ответ - 30. Потому что знак "+" перед строкой конвертирует её в число, если в строке число
+        */
+        console.log(10 + 10 + +"10"); 
+
+        /*
+        Минус конвертирует строку в число со знаком "-". Пустая строка = "0"
+        */
+        console.log(10 / -""); 
+
+        /*
+        Разделитель в дробных числах - ".". Если в качестве разделителя использовать ",", то вернётся NaN
+        */
+        console.log(10 / +"2,5"); 
+    </script>
+</body>
+</html>
