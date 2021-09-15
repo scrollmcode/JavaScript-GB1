@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Задание 1
+        /*
+        значение переменной a увеличивается перед присваиванием
+        */
+        //пример 1 
+        let a = 1, b = 1, c, d; 
+        c = ++a; 
+        alert(c); // ответ: 2 
+        
+        /*
+        значение переменной b увеличивается после присваивания
+        */
+        //пример 2 
+        d = b++; 
+        alert(d); //ответ: 1 
+        
+        /*
+        a = 2. значение переменной a увеличивается на 1 перед присваиванием и складывается с 2 
+        */
+        //пример 3 
+        c = 2 + ++a; 
+        alert(c); //ответ: 5 
+        
+        /*
+        b = 2. значение переменной b увеличивается на 1 после присваивания и складывается с 2
+        */
+        //пример 4 
+        d = 2 + b++; 
+        alert(d); //ответ: 4 
+        
+        alert(a); //3 
+        alert(b); //3 
+
+        // Задание 2
+        let a1 = 2; 
+        let x1 = 1 + (a1 *= 2);
+        console.log('a1 = ' + a1); // 4
+        console.log('x1 = ' + x1); // 5
+        /*
+        1 присваивание значения переменной a
+        2 a умножается на 2
+        3 1 складывается с a
+        4 результат присваивается переменной x
+        */ 
+
+        // Задание 3
+        {
+            let a = 5;
+            let b = 3;
+            console.log(a);
+            console.log(b);
+
+            if(a > 0 && b > 0){
+                console.log(a - b);
+            }
+            else if(a <= 0 && b <= 0){
+                console.log(a * b);
+            }
+            else{
+                console.log(a + b);
+            }
+        }
+
+        
+        {
+            // Задание 4
+            function add(a, b){
+                return a + b;
+            }
+
+            function diff(a, b){
+                return a - b;
+            }
+
+            function division(a, b){
+                return a / b;
+            }
+
+            function multiplication(a, b){
+                return a * b;
+            }
+
+            // Задание 5
+            function mathOperation(arg1, arg2, operation){
+                switch(operation){
+                    case "+" : return add(arg1, arg2); break;
+                    case "-" : return diff(arg1, arg2); break;
+                    case "/" : return division(arg1, arg2); break;
+                    case "*" : return multiplication(arg1, arg2); break;
+                    default: return 'Неизвестное действие';
+                }
+            }
+            console.log('Проверка 5 + 2 = ' + mathOperation(5,2,"+"));
+            console.log('Проверка 5 * 2 = ' + mathOperation(5,2,"*"));
+            console.log('Проверка ошибки: ' + mathOperation(5,2,"abc"));
+        }
+
+
+    </script>
+</body>
+</html>
