@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        "use strict";
+
+        function numToObject(num){
+            if(!Number.isInteger(num)) {return 'Функция принимает число'}
+            if(num < 0 || num > 999) {return 'Число должно быть от 0 до 999'}
+
+            let o = function(units, tens, hundreds){ 
+                this.units = units, //это единицы 
+                this.tens = Math.floor(tens / 10),  //это десятки 
+                this.hundreds = Math.floor(hundreds / 100) //это сотни 
+            } 
+
+            return new o(num % 10, num % 100, num % 1000);
+        }
+
+        let testNum1 = 543;
+        let testNum2 = 5;
+
+        console.log('number: ' + testNum1);
+        console.log(numToObject(testNum1));
+        console.log('number: ' + testNum2);
+        console.log(numToObject(testNum2));
+
+        console.log(numToObject(1234));
+        console.log(numToObject('ЭЭ'));
+
+    </script>
+</body>
+</html>
