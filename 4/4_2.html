@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        "use strict";
+        
+        // Задание 1.2
+        let Post = function(author, text, date){
+            this.author = author;
+            this.text = text;
+            this.date = date;
+        }
+
+        Post.prototype.edit = function(text){
+                this.text = text;
+            }
+
+        let AttachedPost = function(author, text, date){
+            Post.call(this, author, text, date);
+            this.highlighted = false;
+        }
+
+        AttachedPost.prototype = Object.create(Post.prototype);
+        AttachedPost.prototype.constructor = AttachedPost;
+        AttachedPost.prototype.makeTextHighlighted = function(){
+            this.highlighted = true;
+        }
+
+
+        let p1 = new Post('Martin123', 'Hello', '23.09.2021');
+        let ap1 = new AttachedPost('Martin123', 'new post!', '24.09.2021')
+
+        console.log(p1.date + ' ' + p1.author + ' ' + p1.text);
+        console.log(ap1.date + ' ' + ap1.author + ' ' + ap1.text);
+        ap1.edit('new post and new information');
+        console.log(ap1.date + ' ' + ap1.author + ' ' + ap1.text);
+        console.log();
+
+        // class
+
+        class Post1{
+            constructor(author, text, date){
+                this.author = author;
+                this.text = text;
+                this.date = date;
+            }
+
+            edit = function(text){
+                this.text = text;
+            }  
+        }
+
+        class AttachedPost1 extends Post1{
+            constructor(author, text, date){
+                super(author, text, date);
+            }
+            
+            highlighted = false;
+
+            makeTextHighlighted = function(){
+                this.highlighted = true;
+            }
+        }
+
+        let pc1 = new Post1('Gervant01', 'Hi all!', '20.09.2021');
+        let apc1 = new AttachedPost1('Gervant01', 'new post!', '22.09.2021')
+
+        console.log(pc1.date + ' ' + pc1.author + ' ' + pc1.text);
+        console.log(apc1.date + ' ' + apc1.author + ' ' + apc1.text);
+        apc1.edit('learning JavaScript');
+        console.log(apc1.date + ' ' + apc1.author + ' ' + apc1.text);
+
+    </script>
+</body>
+</html>
